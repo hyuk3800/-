@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NO.1 전화번호 검색</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/jquery-ui-1.8.23.custom.min.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+
+            var tg = document.querySelector('#txtban');
+
+            setInterval(function() {
+
+                tg.style.left = "-100%";
+                tg.style.transition = "left .8s";
+
+                setTimeout(function() {
+
+                    //첫번째 것
+                    var first = tg.querySelectorAll("li")[0];
+                    //맨뒤로 보내기
+                    tg.appendChild(first);
+                    tg.style.left = "0";
+                    tg.style.transition = "none";
+
+
+                }, 800);
+
+            }, 2000); //// setInterval ////////
+
+
+
+
+        }); ///////////// load //////////////////////////
+
+
+         window.addEventListener("DOMContentLoaded", function() {
+
+            var tg = document.querySelector('#newban');
+
+            setInterval(function() {
+
+                tg.style.left = "-100%";
+                tg.style.transition = "left .8s";
+
+                setTimeout(function() {
+
+                    //첫번째 것
+                    var first = tg.querySelectorAll("li")[0];
+                    //맨뒤로 보내기
+                    tg.appendChild(first);
+                    tg.style.left = "0";
+                    tg.style.transition = "none";
+
+
+                }, 800);
+
+            }, 5000); //// setInterval ////////
+
+
+
+
+        }); ///////////// load //////////////////////////
+
+        
+       
+        
+        
+
+        $(function() { //// jQB ///////////////
+
+            var rtsnum = 0;
+            $(".scbtn2").click(function(e) {
+                e.preventDefault();
+
+                rtsnum++;
+                if (rtsnum === 3) rtsnum = 0;
+
+                $(".rtsbox>ul").eq(rtsnum).addClass("on")
+                    .siblings().removeClass("on");
+
+
+            }); //// click ///////////////
+            $(".scbtn1").click(function(e) {
+                e.preventDefault();
+
+                rtsnum--;
+                if (rtsnum === -1) rtsnum = 2;
+
+                $(".rtsbox>ul").eq(rtsnum).addClass("on")
+                    .siblings().removeClass("on");
+
+
+            }); //// click ///////////////
+
+
+
+
+            //////////////////////////////
+
+
+            $(".cnbtn2").click(function(e) {
+                e.preventDefault();
+
+
+                $(".cnSlide").animate({
+                    left: "-100%"
+                }, 600, function() {
+                    $(this).append($("ul", this).first())
+                        .css({
+                            left: "0"
+                        });
+                }); /// animate ///
+            }); //////////// click /////////////
+
+            $(".cnbtn1").click(function(e) {
+                e.preventDefault();
+
+                $(".cnSlide").prepend($(".cnSlide>ul").last())
+                    .css({
+                        left: "-100%"
+                    })
+                    .animate({
+                        left: "0%"
+                    }, 600); /// animate ///
+            }); //////////// click /////////////
+
+
+
+        }); ///////// jQB ///////////////////////
+    </script>
+
+</head>
+
+<body>
+    <!--메뉴-->
+    <div class="top">
+        <header id="top" class="inbox clb prt">
+            <!--로고-->
+            <div class="col-1 t1 logo">
+                <h1 id="logo">
+                    <img src="img/logo.png" alt="로고">
+                </h1>
+            </div>
+            <!--메뉴-->
+            <div class="col-11 t1 prt">
+                <!--큰 메뉴-->
+                <nav class="gnb">
+                    <ul>
+                        <li>
+                            <a href="" target="_self">
+                                전화번호 묻고답하기
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" target="_self">
+                                전화번호 제보
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" target="_self">
+                                데이터센터
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" target="_self">
+                                이벤트
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!--검색 버튼-->
+                <button id="magni">
+                    <a href="">
+                        <span class="textnone">검색</span>
+                    </a>
+                </button>
+                <!--햄버거 메뉴-->
+                <button id="ham">
+                    <a href="">
+                        <span class="textnone">사이트맵</span>
+                    </a>
+                </button>
+
+
+                <!--작은 메뉴-->
+                <nav class="gnb2">
+                    <ul>
+                        <li>
+                            <a href="" target="_self">
+                                비즈니스 등록
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" target="_self">
+                                광고센터
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" target="_self">
+                                로그인
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <!--베너, 검색엔진-->
+    <div class="ban">
+        <section id="ban" class="inbox clb rbx">
+            <!--베너-->
+            <div class="col-12 b1 txtban">
+                <ul id="txtban">
+                    <li>휴대폰번호가 궁금하신가요?</li>
+                    <li>스팸, 사기, 범죄 번호로 의심되나요?</li>
+                    <li>어떤 업체를 찾으시나요?</li>
+                </ul>
+
+            </div>
+
+            <!--검색엔진-->
+            <div class="col-12 b2">
+                <div class="b2bx">
+                    <p id="strt">
+                        <span id="bname">
+                            서울특별시 구로구 구로제5동
+                        </span>
+                        에서 찾기
+                    </p>
+                    <div id="schbx">
+                        <input type="text" name="sctxt" id="sctxt" placeholder="지역,상호,업종,전화번호를 입력해 주세요.">
+                        <button id="scicbl">
+                            <span class="textnone">
+                                검색
+                            </span>
+                        </button>
+                    </div>
+                    <a href="" class="schbxbtn">상세검색</a>
+                    <a href="" class="schbxbtn">지도검색</a>
+
+                    <ul id="htg">
+                        <li>
+                            <a href="">
+                                #동파신고
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="">
+                                #편의점
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="">
+                                #치킨배달
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="">
+                                #케익전문점
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="">
+                                #공중전화
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="">
+                                #콜택시
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="">
+                                #장난감판매
+                            </a>
+                        </li>
+                    </ul>
+                    <div id="mb2">
+                        <a href="">
+                            <img src="img/pc_mainbanner1229.jpg" alt="개인,사업자 누구나 무료제공!">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!--링크-->
+            <div class="col-12 b3 icn">
+                <ul>
+                    <li class="icn1">
+                        <a href="" target="_self">
+                            <span class="icnname">
+                                휴대폰번호 찾기
+                            </span>
+                            <p>
+                                국내 유일 010 전화번호 조회
+                            </p>
+                            <span class="split"></span>
+                        </a>
+                    </li>
+                    <li class="icn2">
+                        <a href="" target="_self">
+                            <span class="icnname">
+                                스팸/범죄번호 조회
+                            </span>
+                            <p>
+                                이 전화번호,계좌번호 혹시?
+                            </p>
+                            <span class="split"></span>
+                        </a>
+                    </li>
+                    <li class="icn3">
+                        <a href="" target="_self">
+                            <span class="icnname">
+                                건물/상가/시장 검색
+                            </span>
+                            <p>
+                                롯데타워에 무슨 가계가 있지?
+                            </p>
+                            <span class="split"></span>
+                        </a>
+                    </li>
+                    <li class="icn4">
+                        <a href="" target="_self">
+                            <span class="icnname">
+                                지역/업종별 검색
+                            </span>
+                            <p>
+                                강남구 성형외돠만 보고싶다면?
+                            </p>
+                            <span class="split"></span>
+                        </a>
+                    </li>
+                    <li class="icn5"><a href="" target="_self">
+                            <span class="icnname">
+                                지역번호 찾기
+                            </span>
+                            <p>
+                                02는 서울,울산 지역번호는?
+                            </p>
+                            <span class="split"></span>
+                        </a></li>
+                </ul>
+            </div>
+
+        </section>
+
+    </div>
+
+    <!--컨텐츠-->
+    <div class="cont">
+        <section id="cont" class="inbox clb rbox">
+            <!--게시판-->
+
+            <div class="col-6 c1">
+                <!--검색 게시판-->
+                <div class="gsp">
+                    <h2 id="gspt">검색해도 안나온다면? 직접물어보세요.</h2>
+                    <!--바로가기 십자가-->
+                    <a href="" class="gspicn"><span class="textnone">질문게시판 바로가기</span></a>
+
+                    <ul class="gspul">
+                        <li>
+                            <a href="">
+                                <div>
+                                    <span class="gsptit">
+                                        안녕하세요 루트미디어 편집부나 전화번호 알려주세요···
+                                    </span>
+                                    <span class="skfwk">2021.01.18</span>
+                                </div>
+                                <div class="gsptxt">
+                                    안녕하세요.루트미디어의 편집부는 번호 확인되지 않고,02-2···
+                                </div>
+                            </a>
+                        </li>
+                        <li><a href="">
+                                <div>
+                                    <span class="gsptit">
+                                        053 215 3082 번호 어느 기업인지 확인 부탁드립니다.
+                                    </span>
+                                    <span class="skfwk">2021.01.18</span>
+                                </div>
+                                <div class="gsptxt">
+                                    안녕하세여? 해당 번호는 인터넷포털에서 보험광고 스팸번호···
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div>
+                                    <span class="gsptit">
+                                        031-378-2491 위치 어디인지 알 수 있을까요?안산쪽인···
+                                    </span>
+                                    <span class="skfwk">2021.01.18</span>
+                                </div>
+                                <div class="gsptxt">
+                                    안녕하세요.문의하신 번호의 정확한 위치는 알 수 없으나 031···
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="col-3 c1">
+                <!--스팸-->
+                <div class="spmg">
+                    <h2 id="gspt">스팸 신고내역</h2>
+                    <!--바로가기 십자가-->
+                    <a href="" class="gspicn"><span class="textnone">스팸신고내역 바로가기</span></a>
+
+                    <ul class="spmul">
+                        <li>
+                            <a href="">
+                                <div>
+                                    <span class="spms1">
+                                        070-7174-4328
+                                    </span>
+                                    <span class="spms2">
+                                        인터넷 가입
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div>
+                                    <span class="spms1">
+                                        010-5832-2158
+                                    </span>
+                                    <span class="spms2">
+                                        보이스피싱
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div>
+                                    <span class="spms1">
+                                        0105832-2158
+                                    </span>
+                                    <span class="spms2">
+                                        보이스피싱
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div>
+                                    <span class="spms1">
+                                        070-7327-6859
+                                    </span>
+                                    <span class="spms2">
+                                        보이스피싱
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div>
+                                    <span class="spms1">
+                                        1566-6386
+                                    </span>
+                                    <span class="spms2">
+                                        보이스피싱
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+            <!--인기검색-->
+            <div class="col-3 c1">
+                <div class="bstsc">
+                    <h2 id="gspt">실시간 검색어</h2>
+                    <!--화살표-->
+                    <div class="btbox">
+                        <a href="" class="bt-prev btbt scbtn1">prev</a>
+                        <a href="" class="bt-next btbt scbtn2">next</a>
+                    </div>
+                    <!--실시간 검색어-->
+                    <div class="rts">
+
+                        <div class="rtsbox">
+                            <ul class="on">
+                                <li><a href="">실시간검색어1</a></li>
+                                <li><a href="">실시간검색어2</a></li>
+                                <li><a href="">실시간검색어3</a></li>
+                                <li><a href="">실시간검색어4</a></li>
+                                <li><a href="">실시간검색어5</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="">실시간검색어21</a></li>
+                                <li><a href="">실시간검색어22</a></li>
+                                <li><a href="">실시간검색어23</a></li>
+                                <li><a href="">실시간검색어24</a></li>
+                                <li><a href="">실시간검색어25</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="">실시간검색어31</a></li>
+                                <li><a href="">실시간검색어32</a></li>
+                                <li><a href="">실시간검색어33</a></li>
+                                <li><a href="">실시간검색어34</a></li>
+                                <li><a href="">실시간검색어35</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </div>
+
+    <!--하단 컨텐츠-->
+    <div class="footcont">
+        <!--새롭게 등록된곳, 비즈니스 등록-->
+        <section id="cont" class="inbox clb rbox">
+            <!--등록된곳-->
+            <div class="col-9 c2">
+                <div class="fc1">
+                    <h2 class="c2h2">새롭게 등록되었어요.</h2>
+                    <!--누적인원수-->
+                    <p class="c2p">
+                        누적등록수
+                        <span class="c2pc">10,946,286</span>
+                    </p>
+
+                    <!--화살표-->
+                    <div class="btbtbox">
+                        <a href="" class="bt-prev btbt cnbtn1">prev</a>
+                        <a href="" class="bt-next btbt cnbtn2">next</a>
+                    </div>
+                    <div class="cnBox">
+                        <div class="cnSlide">
+                            <ul id="newban">
+                                <li><a href=""> <span class="cnimg">등록1</span>
+                                        <h3 class="cntit">최강한의원</h3>
+                                        <p class="cncnt"><span class="cntxt2">충남 부여군 부여읍 구아리</span></p>
+                                    </a></li>
+                                <li><a href=""> <span class="cnimg">등록2</span>
+                                        <h3 class="cntit">동남액자</h3>
+                                        <p class="cncnt"><span class="cntxt2">부산 수영구 남천동</span></p>
+                                    </a></li>
+                                <li><a href=""><span class="cnimg">등록3 </span>
+                                        <h3 class="cntit">금호열쇠도장</h3>
+                                        <p class="cncnt"><span class="cntxt2">경기 수원시 권선구 금곡동</span></p>
+                                    </a></li>
+                                <li><a href=""><span class="cnimg">등록4 </span>
+                                        <h3 class="cntit">울산스카이</h3>
+                                        <p class="cncnt"><span class="cntxt2">울산 남구 야음동</span></p>
+                                    </a></li>
+                            </ul>
+                            <ul>
+                                <li><a href=""> <span class="cnimg">등록5</span>
+                                        <h3 class="cntit">신대건강생활지원센터</h3>
+                                        <p class="cncnt"><span class="cntxt2">전남 순천시 해룡면 신대리</span></p>
+                                    </a></li>
+                                <li><a href=""> <span class="cnimg">등록6</span>
+                                        <h3 class="cntit">제일티에스</h3>
+                                        <p class="cncnt"><span class="cntxt2">광주 광산구 도천동</span></p>
+                                    </a></li>
+                                <li><a href=""> <span class="cnimg">등록7</span>
+                                        <h3 class="cntit">진동로라 10톤로라 아스콘포···</h3>
+                                        <p class="cncnt"><span class="cntxt2">경기 구리시 교문동</span></p>
+                                    </a></li>
+                                <li><a href=""> <span class="cnimg">등록8</span>
+                                        <h3 class="cntit">서영종합건축설비</h3>
+                                        <p class="cncnt"><span class="cntxt2">충북 단양군 단양읍 도전리</span></p>
+                                    </a></li>
+                            </ul>
+                            <ul>
+                                <li><a href=""> <span class="cnimg">등록9</span>
+                                        <h3 class="cntit">와청소년지역아동센터</h3>
+                                        <p class="cncnt"><span class="cntxt2">경기 안양시 만안구 석수동</span></p>
+                                    </a></li>
+                                <li><a href=""> <span class="cnimg">등록10</span>
+                                        <h3 class="cntit">해방소 경기남부센터</h3>
+                                        <p class="cncnt"><span class="cntxt2">경기 수원시 팔달구 인계동</span></p>
+                                    </a></li>
+                                <li><a href=""> <span class="cnimg">등록11</span>
+                                        <h3 class="cntit">ms건축사 사무소</h3>
+                                        <p class="cncnt"><span class="cntxt2">대전 유성구 온천2동</span></p>
+                                    </a></li>
+                                <li><a href=""> <span class="cnimg">등록12</span>
+                                        <h3 class="cntit">신스터디카페</h3>
+                                        <p class="cncnt"><span class="cntxt2">인천 남동구 간석동</span></p>
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--등록하는곳-->
+            <div class="col-3 c2">
+                <div class="fc2">
+                    <a href="" class="bush2">
+                        <h2 class="butit2">내 비즈니스 등록하기</h2>
+                        <p class="butxt2">
+                            사장님! 프리랜서 여러분~ <br>
+                            114에 내정보 무료로 등록하세요~
+                        </p>
+                    </a>
+                </div>
+            </div>
+
+
+            <!--데이터,광고 센터-->
+            <div class="col-12 c3">
+                <div class="fcbox clb">
+                    <div class="fc3">
+                        <a href="" class="fc3cnt1">
+                            <p class="fc3txt">114On을 온라인에서 간편하게 받아보세요!</p>
+                            <h2 class="fc3tit">데이터 센터</h2>
+                        </a>
+
+                    </div>
+
+                    <div class="fc3">
+                        <a href="" class="fc3cnt2">
+                            <p class="fc3txt">기업 홍보 마케팅에 어려움이 있으세요?</p>
+                            <h2 class="fc3tit">광고 센터</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!--새로운 소식-->
+            <div class="col-12 c4">
+                <div id="c4" class="clb">
+                    <div class="c4-1 c412">
+                        <strong>
+                            새로운 소식을 만나보세요!
+                        </strong>
+                    </div>
+
+                    <div class="c4-2 c412">
+                        <a href="" class="c4-2a">
+                            [당첨자발표]114On 리뉴얼 기념
+                            <span class="c4day">2020.12.18</span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+    </div>
+    <!--하단 영역-->
+    <div class="info">
+        <footer id="info" class="inbox clb">
+
+            <div class="col-11 i1">
+                <!--정보 링크-->
+                <ol class="link">
+                    <li>
+                        <a href="">서비스소개</a>
+                    </li>
+                    <li>
+                        <a href="">이용약관</a>
+                    </li>
+                    <li>
+                        <a href="" class="em">개인정보처리방침</a>
+                    </li>
+                    <li>
+                        <a href="">공지사항</a>
+                    </li>
+                    <li>
+                        <a href="">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="">문의/건의</a>
+                    </li>
+
+                    <li>
+                        <a href="">제휴문의</a>
+                    </li>
+                </ol>
+
+
+            </div>
+            <div class="col-1 i1">
+                <!--패밀리사이트-->
+                <select id="fslink">
+                    <option value="fs">
+                        Family Site
+                    </option>
+                    <option value="ktis">
+                        kt is
+                    </option>
+                    <option value="ktis2">
+                        kt is 인재채용
+                    </option>
+                </select>
+            </div>
+            <div class="col-10 i2">
+                <!--회사주소-->
+                <address class="addr">
+                    kt is <span>&nbsp;</span> 대표이사:이응호 <span>&nbsp;</span> 통신판매업신고:제2006-04260호(2006.06.05) <span>&nbsp;</span> 사업자 등록번호:101-81-71660 <br>
+                    (07320)서울특별시 영등포구 여의대로 14 kt빌딩 10층 <span>&nbsp;</span> 사이트문의 050-7888-0006
+
+                    <strong class="copy">Copyright© 2020 kt is. All rights reserved.</strong>
+
+                </address>
+            </div>
+            <div class="col-2 i2">
+                <!--SNS 링크-->
+                <ol class="snsico">
+                    <li><a href="" target="_blank"><span class="bld">페이스북</span></a></li>
+                    <li><a href="" target="_blank"><span class="bld">인스타그램</span></a></li>
+                    <li><a href="" target="_blank"><span class="bld">네이버블로그</span></a></li>
+                    <li><a href="" target="_blank"><span class="bld">유튜브</span></a></li>
+                </ol>
+
+
+            </div>
+        </footer>
+    </div>
+
+    <!--그리드뷰-->
+    <!--
+    <ul class="grid">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+-->
+
+
+</body></html>
